@@ -1,31 +1,31 @@
-import { IUtils } from "@date-io/core/IUtils";
-import { DateTime } from "luxon";
-import DateIoAdapter from "@date-io/luxon";
+import { IUtils } from "@date-io/core/IUtils"
+import { DateTime } from "luxon"
+import DateIoAdapter from "@date-io/luxon"
 //import DateIoAdapter from "@date-io/date-fns";
-import React from "react";
+import React from "react"
 
-type CurrentDateType = DateTime;
+type CurrentDateType = DateTime
 
-const localeContext = React.createContext<IUtils<CurrentDateType> | null>(null);
+const localeContext = React.createContext<IUtils<CurrentDateType> | null>(null)
 
 const LocalDateContextProvider = ({
   children,
 }: React.PropsWithChildren<{}>) => {
-  const dateUtils = React.useMemo(() => new DateIoAdapter(), []);
+  const dateUtils = React.useMemo(() => new DateIoAdapter(), [])
 
   return (
     <localeContext.Provider value={dateUtils}>
       {children}
     </localeContext.Provider>
-  );
-};
+  )
+}
 
 const useLocaleDateUtils = () => {
-  const context = React.useContext(localeContext);
+  const context = React.useContext(localeContext)
 
-  if (context == null) throw new Error("Use in LocalDateContextProvider");
+  if (context == null) throw new Error("Use in LocalDateContextProvider")
 
-  return context;
-};
+  return context
+}
 
-export { LocalDateContextProvider, useLocaleDateUtils };
+export { LocalDateContextProvider, useLocaleDateUtils }
