@@ -1,6 +1,6 @@
-import React from "react"
-import { LocalDateContextProvider } from "./context/LocalDateContextProvider"
-import { MyComp } from "./components/MyComp"
+import React from "react";
+import { LocalDateContextProvider } from "./context/LocalDateContextProvider";
+import { MyComp } from "./components/MyComp";
 
 const App = () => {
   return (
@@ -9,7 +9,7 @@ const App = () => {
         <MyComp />
       </LocalDateContextProvider>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
